@@ -1,0 +1,8 @@
+// create module to "safely" export api keys to the app.
+// copy this file as template, and make sure conf.js is added to dot gitignore.
+module.exports.robot = {
+ consumer_key:         '',
+ consumer_secret:      '',
+ access_token:         '',
+ access_token_secret:  ''
+}

@@ -1,0 +1,32 @@
+{
+  "name": "okrobot",
+  "version": "0.0.1",
+  "description": "A twitter bot, striving to be modular and useful as possible.",
+  "main": "okrobot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/broketech/okrobot.git"
+  },
+  "keywords": [
+    "twitter",
+    "automation",
+    "follow",
+    "like",
+    "retweet",
+    "contest"
+  ],
+  "author": "",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/broketech/okrobot/issues"
+  },
+  "homepage": "https://github.com/broketech/okrobot#readme",
+  "dependencies": {
+    "mongodb": "^2.2.32",
+    "monk": "^6.0.5",
+    "twit": "^2.2.9"
+  }
+}

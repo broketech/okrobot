@@ -1,6 +1,5 @@
 const conf = require('./conf.js');
 var Twit = require('twit');
-
 var T = new Twit(conf.robot);  // insert api key field from conf file
 
 module.exports.twitterHistory = function(target, cb){ // pull last x tweets from target user

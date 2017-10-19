@@ -1,6 +1,6 @@
 {
   "name": "okrobot",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "A twitter bot, striving to be modular and useful as possible.",
   "main": "okrobot.js",
   "scripts": {
@@ -16,7 +16,9 @@
     "follow",
     "like",
     "retweet",
-    "contest"
+    "contest",
+    "markov",
+    "humor"
   ],
   "author": "",
   "license": "BSD-2-Clause",

@@ -1,6 +1,6 @@
 {
   "name": "okrobot",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "A twitter bot, striving to be modular and useful as possible.",
   "main": "okrobot.js",
   "scripts": {
@@ -16,7 +16,9 @@
     "follow",
     "like",
     "retweet",
-    "contest"
+    "contest",
+    "markov",
+    "humor"
   ],
   "author": "",
   "license": "BSD-2-Clause",
@@ -25,8 +27,10 @@
   },
   "homepage": "https://github.com/broketech/okrobot#readme",
   "dependencies": {
+    "markov-strings": "^1.3.4",
     "mongodb": "^2.2.32",
     "monk": "^6.0.5",
+    "remove-punctuation": "0.0.4",
     "twit": "^2.2.9"
   }
 }

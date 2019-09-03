@@ -6,7 +6,7 @@ var Twit = require('twit');
 var T = new Twit(conf.robot);
 
 var options = {
-  nick: 'okrobot17'
+  nick: conf.robot.screen_name
 };
 var stream = T.stream('statuses/filter', { track: options.nick });
 stream.on('tweet', function(tweet){

@@ -34,14 +34,14 @@ module.exports.twitterSearch = function(target, cb){ // pull last x tweet accord
 }
 module.exports.scrubDaddy = function(cb){
   var options = {
-    screen_name: 'okrobot17',
+    screen_name: conf.robot.screen_name, //screen name of the bot
     count: 200,
-    include_rts: false,
-    exclude_replys: false
+    include_rts: false, // exclude retweets
+    exclude_replys: false // include all replies made by bot
   }
   T.get('statuses/user_timeline', options, function(err, data, response){
     if(err) console.log(err);
-    console.log(data.length + " potential tweets to scrub")
+    console.log(data.length + " potential tweets to scrub") // number of tweets to delete
     for(let x of data){
       //console.log(x.id_str)
       T.post('statuses/destroy', { id: x.id_str}, function(data){

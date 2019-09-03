@@ -4,5 +4,7 @@ module.exports.robot = {
  consumer_key:         '',
  consumer_secret:      '',
  access_token:         '',
- access_token_secret:  ''
+ access_token_secret:  '',
+ strict_SSL:           true,
+ screen_name:          'SCREEN_NAME_OF_BOT'
 }

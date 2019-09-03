@@ -16,3 +16,37 @@ module.exports.twitterHistory = function(target, cb){ // pull last x tweets from
     return cb(data);
   });
 }
+module.exports.twitterSearch = function(target, cb){ // pull last x tweet according to search
+  var options = {
+    q: '',
+    count: 200
+  }
+  options.q = target;
+  T.get('search/tweets', options, function(err, data, response){
+    if(err) console.log(err);
+    //console.log(response)
+    if(data.statuses.length == 0 ){
+      return cb('corpus too small, change your search terms')
+    } else {
+      return cb(data.statuses);
+    }
+  });
+}
+module.exports.scrubDaddy = function(cb){
+  var options = {
+    screen_name: 'okrobot17',
+    count: 200,
+    include_rts: false,
+    exclude_replys: false
+  }
+  T.get('statuses/user_timeline', options, function(err, data, response){
+    if(err) console.log(err);
+    console.log(data.length + " potential tweets to scrub")
+    for(let x of data){
+      //console.log(x.id_str)
+      T.post('statuses/destroy', { id: x.id_str}, function(data){
+      //  console.log(data)
+      })
+    }
+  });
+}

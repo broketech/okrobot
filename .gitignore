@@ -2,3 +2,4 @@ node_modules
 conf.js
 conf.json
 scratch.js
+package-lock.json

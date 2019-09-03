@@ -13,7 +13,7 @@ monk
 
 Wire up a function.  See if it works.  Add to it is you want.
 Currently only function pulls last 200 tweets from a target user,
-stripping all visually problematic formatting, then feeds into 
+stripping all visually problematic formatting, then feeds into
 npm module markov-strings, sorts out the best scored string,
 then returns.
 
@@ -28,3 +28,6 @@ same attacker gains access to make people it
 TKIP and a one-liner that
 If you would wager a windows dev env and have thunk it
 
+### TODO
+
+???

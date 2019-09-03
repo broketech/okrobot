@@ -3,12 +3,12 @@ var rp = require('remove-punctuation');
 
 var options = {
   stateSize: 1,
-  maxLength: 125,
-  minWords: 5,
-  minScore: 10,
-  maxTries: 50000
+  maxLength: 235,
+  minWords: 4,
+  minScore: 12,
+  maxTries: 65535
 };
-var sampleSize = 10; // run sentence generator this many times, then compare all scores
+var sampleSize = 23; // run sentence generator this many times, then compare all scores
 
 module.exports.genTweet = function(input){ // generates best sentence formatted for a tweet
   var markov = new Markov(parseText(input), options);
@@ -33,6 +33,7 @@ function compareScore(array){ // compares scores
 }
 
 function parseText(a, b){ // strip links, spurious newlines, and twitter handles from tweet text
+//  console.log(a)
   b = [];
   for(let x of a){
     b.push(rp(x.text.replace(/(?:https?|ftp):\/\/[\n\S]+/g, '').replace(/\n/gi, ' ').replace(/(@)[\n\S]+/g, '')));  // thank you stack exchange

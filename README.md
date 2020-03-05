@@ -11,7 +11,7 @@ monk
 
 ### Use
 
-Wire up a function.  See if it works.  Add to it is you want.
+Wire up a function.  See if it works.  Add to it as you want.
 Currently the two main functions pulls last 200 tweets from a query,
 stripping all visually problematic formatting, then feeds into
 npm module markov-strings, sorts out the best scored string,

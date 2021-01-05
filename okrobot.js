@@ -22,7 +22,14 @@ stream.on('tweet', function(tweet){
         return;
       });
     })
-  } else if((arg[1] == 'markovsearch') ){ // markov search request
+  } else if((arg[1] == 'scrubdaddy') && (tweet.user.screen_name == 'cheeseanddope')){ // scrub tweets
+    console.log(tweet.user.screen_name + " requested scrub")
+    TT.scrubDaddy();
+    T.post('statuses/update', { status: "@"+tweet.user.screen_name+" "+ 'scrubbing tweets daddy uwu' }, function(err, data, response) {
+      console.log("status: @"+tweet.user.screen_name+" "+'scrubbing tweets')
+      return;
+    });
+  } else { // conversation return, previously markov search request
     //var tmp = arg;
     arg.shift();
     arg.shift();
@@ -33,12 +40,5 @@ stream.on('tweet', function(tweet){
         return;
       });
     })
-  }else if((arg[1] == 'scrubdaddy') && (tweet.user.screen_name == 'cheeseanddope')){ // scrub tweets
-    console.log(tweet.user.screen_name + " requested scrub")
-    TT.scrubDaddy();
-    T.post('statuses/update', { status: "@"+tweet.user.screen_name+" "+ 'scrubbing tweets daddy uwu' }, function(err, data, response) {
-      console.log("status: @"+tweet.user.screen_name+" "+'scrubbing tweets')
-      return;
-    });
-  };
+  }
 });

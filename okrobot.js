@@ -31,7 +31,7 @@ stream.on('tweet', function(tweet){
     });
   } else { // conversation return, previously markov search request
     //var tmp = arg;
-    arg.shift();
+    //arg.shift();
     arg.shift();
     TT.twitterSearch(arg.join(' OR '), function(tdata){
     var mdata = M.genTweet(tdata);

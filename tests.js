@@ -29,4 +29,3 @@ var arg = [ 1, 2, 3, 4];
 arg.shift();
 arg.shift();
 arg.join(' '); */
-TT.updateProfile({ url: 'https://github.com/broketech/okrobot'});

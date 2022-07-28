@@ -27,10 +27,9 @@
   },
   "homepage": "https://github.com/broketech/okrobot#readme",
   "dependencies": {
-    "markov-strings": "^1.3.4",
-    "mongodb": "^2.2.32",
-    "monk": "^6.0.5",
+    "markov-strings": "latest",
     "remove-punctuation": "0.0.4",
-    "twit": "^2.2.9"
+    "rita": "^2.8.1",
+    "twit": "latest"
   }
 }

@@ -1,23 +1,29 @@
-var Markov = require('markov-strings');
+const Markov = require('markov-strings').default;
 var rp = require('remove-punctuation');
 
-var options = {
-  stateSize: 1,
-  maxLength: 235,
-  minWords: 4,
-  minScore: 12,
-  maxTries: 65535
-};
-var sampleSize = 23; // run sentence generator this many times, then compare all scores
+const options = {
+  maxTries: 7784212,
+  prng: Math.Random,
+  filter: (result) => {
+ return	!(result.string.includes('RT')) &&
+        !(result.string.includes('Roe'))
+  }
+}
+// var sampleSize = 23; // run sentence generator this many times, then compare all scores
 
 module.exports.genTweet = function(input){ // generates best sentence formatted for a tweet
-  var markov = new Markov(parseText(input), options);
-  markov.buildCorpusSync();
-  tmpArr = [];
-  for(x = 0; x < sampleSize; x++){
-    tmpArr.push(markov.generateSentenceSync());
-  };
-  return compareScore(tmpArr);
+	//console.log(input)
+  const markov = new Markov({ stateSize: 7 });
+  markov.addData(input);
+  const result = markov.generate(options);
+  //markov.buildCorpusSync(function(err){if(err) {console.log('err')} });
+  //tmpArr = [];
+  //for(x = 0; x < sampleSize; x++){
+  //  tmpArr.push(markov.generateSentenceSync());
+  //};
+	//
+//	console.log(result)
+  return result.string.toString();
 }
 
 function compareScore(array){ // compares scores
@@ -32,11 +38,11 @@ function compareScore(array){ // compares scores
   return tmpString;
 }
 
-function parseText(a, b){ // strip links, spurious newlines, and twitter handles from tweet text
-//  console.log(a)
-  b = [];
-  for(let x of a){
-    b.push(rp(x.text.replace(/(?:https?|ftp):\/\/[\n\S]+/g, '').replace(/\n/gi, ' ').replace(/(@)[\n\S]+/g, '')));  // thank you stack exchange
-  };
-  return b;
+module.exports.parseText = function(a, b){ // strip links, spurious newlines, and twitter handles from tweet text
+ // console.log("a: " + a)
+ // b = [];
+ // for(let x of a){
+    return (rp(a.replace(/(?:https?|ftp):\/\/[\n\S]+/g, '').replace(/\n/gi, ' ').replace(/(@)[\n\S]+/g, '')));  // thank you stack exchange
+ // };
+//  return b;
 }

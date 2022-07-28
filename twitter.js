@@ -6,8 +6,9 @@ module.exports.twitterHistory = function(target, cb){ // pull last x tweets from
   var options = {
     screen_name: '',
     include_rts: false,
-    count: 200,
-    exclude_replys: true
+    count: 100,
+    result_type: 'popular',
+    exclude_replys: false
   }
   options.screen_name = target;
   T.get('statuses/user_timeline', options, function(err, data, response){
@@ -19,14 +20,28 @@ module.exports.twitterHistory = function(target, cb){ // pull last x tweets from
 module.exports.twitterSearch = function(target, cb){ // pull last x tweet according to search
   var options = {
     q: '',
-    count: 200
+    include_rts: false,
+    count: 100,
+    result_type: 'mixed'
   }
   options.q = target;
+  options.q += ' da OR fucked OR a OR tank';
   T.get('search/tweets', options, function(err, data, response){
     if(err) console.log(err);
     //console.log(response)
-    if(data.statuses.length == 0 ){
-      return cb('corpus too small, change your search terms')
+    if(0){
+      //return cb('corpus too small, change your search terms')
+	options.q += ' da OR fucked OR a OR tank'
+	    console.log(options.q)
+    T.get('search/tweets', options, function(err, data, response){
+	        if(err) console.log(err);
+	        //console.log(response)
+	        if(data.statuses.length == 0 ){
+            return cb('corpus too small, change your search terms')
+          } else {
+            return cb(data.statuses);
+	                       }
+	   });
     } else {
       return cb(data.statuses);
     }
@@ -48,5 +63,8 @@ module.exports.scrubDaddy = function(cb){
       //  console.log(data)
       })
     }
-  });
+  }).then( x => {return});
+}
+module.exports.pollEnum = function(){
+
 }

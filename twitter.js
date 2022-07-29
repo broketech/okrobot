@@ -6,7 +6,7 @@ module.exports.twitterHistory = function(target, cb){ // pull last x tweets from
   var options = {
     screen_name: '',
     include_rts: false,
-    count: 100,
+    count: 200,
     result_type: 'popular',
     exclude_replys: false
   }
@@ -25,13 +25,12 @@ module.exports.twitterSearch = function(target, cb){ // pull last x tweet accord
     result_type: 'mixed'
   }
   options.q = target;
-  options.q += ' da OR fucked OR a OR tank';
+  // options.q += ' da OR fucked OR a OR tank';
   T.get('search/tweets', options, function(err, data, response){
     if(err) console.log(err);
     //console.log(response)
     if(0){
       //return cb('corpus too small, change your search terms')
-	options.q += ' da OR fucked OR a OR tank'
 	    console.log(options.q)
     T.get('search/tweets', options, function(err, data, response){
 	        if(err) console.log(err);

@@ -1,6 +1,13 @@
 # okrobot
 ## A twitter bot, striving to be modular and useful as possible.
 
+If you are def totes not a furry, this is the bot that affirms 
+this fact: https://github.com/broketech/recluse/
+
+else for the broken markov chains reply bot, read on. should work as is, 
+but needs refactor for new install, as i believe the markov-strings package 
+removed legacy functions :(
+
 So far dependencies are:
 node.js and npm
 twit

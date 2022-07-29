@@ -1,29 +1,15 @@
-const Markov = require('markov-strings').default;
+let RiTa = require('rita');
 var rp = require('remove-punctuation');
 
-const options = {
-  maxTries: 7784212,
-  prng: Math.Random,
-  filter: (result) => {
- return	!(result.string.includes('RT')) &&
-        !(result.string.includes('Roe'))
-  }
-}
-// var sampleSize = 23; // run sentence generator this many times, then compare all scores
 
 module.exports.genTweet = function(input){ // generates best sentence formatted for a tweet
 	//console.log(input)
-  const markov = new Markov({ stateSize: 7 });
-  markov.addData(input);
-  const result = markov.generate(options);
-  //markov.buildCorpusSync(function(err){if(err) {console.log('err')} });
-  //tmpArr = [];
-  //for(x = 0; x < sampleSize; x++){
-  //  tmpArr.push(markov.generateSentenceSync());
-  //};
-	//
-//	console.log(result)
-  return result.string.toString();
+  // start rita stuff
+  let rm = RiTa.markov(2, { maxAttempts: 40000000 });
+  rm.addText(input);
+  let sentences = rm.generate(1, { allowDuplicates: false, minLength: 21, maxLength: 50, temperature: 0.6 });
+  // console.log(sentences);
+  return sentences
 }
 
 function compareScore(array){ // compares scores

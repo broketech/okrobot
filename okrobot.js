@@ -35,11 +35,6 @@ stream.on('tweet', function(tweet){
     });
   } else { // conversation return, previously markov search request
     //var tmp = arg;
-    //hear me out, what if we fed the handle back in with the OR, because it keeps crashing.
-    //unless the OR is not being honroed. i dont know, im just spit balling.
-    //will probably loop results a keyword at a time in the future.
-    // arg.shift();
-    // arg.shift();
     TT.twitterSearch(arg.join(' OR '), function(tdata){
     let bulkString = [];
 	for(let x of tdata){

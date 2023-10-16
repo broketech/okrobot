@@ -1,6 +1,8 @@
 # okrobot
 ## A twitter bot, striving to be modular and useful as possible.
 
+## This bot is fairly defunct becasue of breaking api changes.
+
 If you are def totes not a furry, this is the bot that affirms 
 this fact: https://github.com/broketech/recluse/
 
